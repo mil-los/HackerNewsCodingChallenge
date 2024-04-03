@@ -1,0 +1,67 @@
+.page-header {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+  display: flex;
+  justify-content: right;
+}
+
+.list {
+  position: relative;
+}
+
+  .list ul {
+    position: relative;
+  }
+
+    .list ul li {
+      position: relative;
+      left: 0;
+      color: #fce4ec;
+      list-style: none;
+      margin: 4px 0;
+      border-left: 2px solid #2199e8;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+      .list ul li:hover {
+        left: 10px;
+      }
+
+      .list ul li a {
+        color: #2199e8;
+      }
+
+      .list ul li a,
+      .list ul li span {
+        position: relative;
+        padding: 8px;
+        padding-left: 12px;
+        display: inline-block;
+        z-index: 1;
+        transition: 0.5s;
+      }
+
+      .list ul li:hover a,
+      .list ul li:hover span {
+        color: #eee;
+        text-decoration: none;
+      }
+
+      .list ul li:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #2199e8;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: 0.5s;
+      }
+
+      .list ul li:hover:before {
+        transform: scaleX(1);
+      }

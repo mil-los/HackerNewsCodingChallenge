@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1 id="tableLabel">Newest stories</h1>
+</div>
+
+<div class="form-group">
+  <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+         [(ngModel)]="searchText" (ngModelChange)="onChange()" placeholder="Enter text to search"
+         autofocus>
+</div>
+
+<p *ngIf="isLoading"><em>Loading stories...</em></p>
+<div class="list" *ngIf="!isLoading">
+  <ul>
+    <li *ngFor="let story of stories | searchFilter: searchText | paginate: { itemsPerPage: 10, currentPage: page }">
+      <a *ngIf="story.url" href="{{story.url}}">{{ story.title }}</a>
+      <span *ngIf="!story.url">{{ story.title }}</span>
+    </li>
+  </ul>
+
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
