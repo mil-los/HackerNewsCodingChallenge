@@ -26,7 +26,7 @@ namespace HackerNewsCodingChallenge.Server.Services
                 List<int> storyIds = new();
                 if (httpResponseMessage.IsSuccessStatusCode)
                 {
-                    using var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
+                    var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
                     storyIds = await JsonSerializer.DeserializeAsync<List<int>>(contentStream);
                 }
 
